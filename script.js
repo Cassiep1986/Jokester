@@ -46,3 +46,7 @@ fetch('https://api.pgamerx.com/v3/ai/response?message=encodeURIComponent("Hello"
           alert("Unable to gather weather data!");
         });
     };
+
+    $(displayWeather).on(("online",apiUrl ) => {
+      getWeather();
+    };
