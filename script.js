@@ -43,7 +43,10 @@ modalButton.on("click", function (event) {
 
 $(".modal-close").on("click", function (e) {
     $("#aboutUsModal").removeClass("is-active");
+})
 
+$(".modal-background").on("click", function (e) {
+    $("#aboutUsModal").removeClass("is-active");
 })
 
 var dropdown = document.querySelector('.dropdown');
