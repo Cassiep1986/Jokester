@@ -1,5 +1,6 @@
-var jokeList = document.querySelector("ul");
-var Button = document.getElementById("button");
+var jokeList = $("#ul");
+var Button = $("#button");
+var modalButton = $("#aboutUs");
 
 function getjokeApi() {
     var requestUrl = 'https://v2.jokeapi.dev/joke/Pun?blacklistFlags=nsfw,religious,political,racist,sexist,explicit';
@@ -35,15 +36,20 @@ getjokeApi();
 
 
 
+modalButton.on("click", function (event) {
+    $("#aboutUsModal").addClass("is-active");
 
-debugger;
+});
+
+$(".modal-close").on("click", function (e) {
+    $("#aboutUsModal").removeClass("is-active");
+
+})
 
 var dropdown = document.querySelector('.dropdown');
-    console.log("outside event");
 
 //addEventListener - attaches an event handler to the specified element.
 dropdown.addEventListener('click', function (event) {
-    console.log("event fired");
     //event.stopPropagation() - it stops the bubbling of an event to parent elements, by preventing parent event handlers from being executed
     event.stopPropagation();
 
