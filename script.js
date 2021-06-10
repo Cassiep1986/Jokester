@@ -1,5 +1,6 @@
-  // var jokeList = document.querySelector('ul');
-  // var Button = document.getElementById('button');
+var jokeList = $("#ul");
+var Button = $("#button");
+var modalButton = $("#aboutUs");
 
   // function getApi() {
   //   var requestUrl = 'https://v2.jokeapi.dev/joke/Pun?blacklistFlags=nsfw,religious,political,racist,sexist,explicit';
@@ -47,6 +48,31 @@ fetch('https://api.pgamerx.com/v3/ai/response?message=encodeURIComponent("Hello"
         });
     };
 
-    $(displayWeather).on(("online",apiUrl ) => {
-      getWeather();
-    };
+// Button.addEventListener('click', getjokeApi);
+getjokeApi();
+
+
+
+
+
+
+modalButton.on("click", function (event) {
+    $("#aboutUsModal").addClass("is-active");
+
+});
+
+$(".modal-close").on("click", function (e) {
+    $("#aboutUsModal").removeClass("is-active");
+
+})
+
+var dropdown = document.querySelector('.dropdown');
+
+//addEventListener - attaches an event handler to the specified element.
+dropdown.addEventListener('click', function (event) {
+    //event.stopPropagation() - it stops the bubbling of an event to parent elements, by preventing parent event handlers from being executed
+    event.stopPropagation();
+
+    //classList.toggle - it toggles between adding and removing a class name from an element
+    dropdown.classList.toggle('is-active');
+});
