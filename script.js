@@ -56,8 +56,11 @@ modalButton.on("click", function (event) {
 $(".modal-close").on("click", function (e) {
   $("#aboutUsModal").removeClass("is-active");
 });
+<<<<<<< HEAD
     $("#aboutUsModal").removeClass("is-active");
 
+=======
+>>>>>>> 89f85ce1beea86056346ff0e7a441d2e63f2ce2d
 
 $(".modal-background").on("click", function (e) {
     $("#aboutUsModal").removeClass("is-active");
