@@ -28,32 +28,41 @@ fetch(
 )
   .then((res) => res.json())
   .then((json) => console.log(json));
+const saveButton = $("#saveBtn");
+const savedContent = $("#savedFavorites");
 
-// Button.addEventListener('click', getjokeApi);
-getjokeApi();
+//click on save btn
+// saved to local storage
+//and display multiple saves to our favorites category.
+//make saved favorites clickable items on the page for display later.
+function creatSave(){
+  const saveFavs = $("<li>"); 
+}
 
-
-
-
+$(saveButton).on("click", creatSave)
 
 
 modalButton.on("click", function (event) {
-    $("#aboutUsModal").addClass("is-active");
-
+  $("#aboutUsModal").addClass("is-active");
 });
 
 $(".modal-close").on("click", function (e) {
+  $("#aboutUsModal").removeClass("is-active");
+});
     $("#aboutUsModal").removeClass("is-active");
 
+
+$(".modal-background").on("click", function (e) {
+    $("#aboutUsModal").removeClass("is-active");
 })
 
-var dropdown = document.querySelector('.dropdown');
+var dropdown = document.querySelector(".dropdown");
 
 //addEventListener - attaches an event handler to the specified element.
-dropdown.addEventListener('click', function (event) {
-    //event.stopPropagation() - it stops the bubbling of an event to parent elements, by preventing parent event handlers from being executed
-    event.stopPropagation();
+dropdown.addEventListener("click", function (event) {
+  //event.stopPropagation() - it stops the bubbling of an event to parent elements, by preventing parent event handlers from being executed
+  event.stopPropagation();
 
-    //classList.toggle - it toggles between adding and removing a class name from an element
-    dropdown.classList.toggle('is-active');
+  //classList.toggle - it toggles between adding and removing a class name from an element
+  dropdown.classList.toggle("is-active");
 });
