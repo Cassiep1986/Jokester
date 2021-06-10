@@ -1,6 +1,7 @@
-var jokeList = document.querySelector("ul");
-var Button = document.getElementById("button");
-var Button = document.getElementById("container2");
+var jokeList = $("#ul");
+var Button = $("#button");
+var modalButton = $("#aboutUs");
+var container2 = $("#container2");
 
 function getjokeApi() {
   var requestUrl =
@@ -13,7 +14,7 @@ function getjokeApi() {
     .then(function (data) {
       console.log(data);
       var listItem = document.createElement("p");
-      listItem.textContent = data.jokes.joke;
+      listItem.textContent = data.jokes[0].joke;
       container2.append(listItem);
     });
 }
@@ -30,3 +31,29 @@ fetch(
 
 // Button.addEventListener('click', getjokeApi);
 getjokeApi();
+
+
+
+
+
+
+modalButton.on("click", function (event) {
+    $("#aboutUsModal").addClass("is-active");
+
+});
+
+$(".modal-close").on("click", function (e) {
+    $("#aboutUsModal").removeClass("is-active");
+
+})
+
+var dropdown = document.querySelector('.dropdown');
+
+//addEventListener - attaches an event handler to the specified element.
+dropdown.addEventListener('click', function (event) {
+    //event.stopPropagation() - it stops the bubbling of an event to parent elements, by preventing parent event handlers from being executed
+    event.stopPropagation();
+
+    //classList.toggle - it toggles between adding and removing a class name from an element
+    dropdown.classList.toggle('is-active');
+});
