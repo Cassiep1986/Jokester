@@ -1,6 +1,7 @@
 var jokeList = $("#ul");
 var Button = $("#button");
 var modalButton = $("#aboutUs");
+
 const saveButton = $("#saveBtn");
 const savedContent = $("#savedFavorites");
 let jokeDay = $("#jokeOfTheDay")
@@ -30,15 +31,14 @@ function getjokeApi() {
 
       // $(saveButton).on("click", creatSave)
 
-<<<<<<< HEAD
+
       // var jokeList = document.querySelector('ul')
       // var Button = document.getElementById('button');
-=======
+
   
   
   // var jokeList = document.querySelector('ul')
   // var Button = document.getElementById('button');
->>>>>>> b690631eae9bf55c98859c8f73b767fe63c16a41
 
       // function getApi() {
       //   var requestUrl = 'https://v2.jokeapi.dev/joke/Pun?blacklistFlags=nsfw,religious,political,racist,sexist,explicit';
@@ -58,21 +58,32 @@ function getjokeApi() {
       // }
 
       // Button.addEventListener('click', getApi);
-
-<<<<<<< HEAD
-      // Button.addEventListener('click', getjokeApi);
-      // getjokeApi();
 =======
-fetch(
-  'https://api.pgamerx.com/v3/ai/response?message=encodeURIComponent("Hello")&type=stable',
-  {
-    method: "get",
-    headers: { "x-api-key": "dBzuyLCxJ06r" },
-  }
-)
-  .then((res) => res.json())
-  .then((json) => console.log(json));
->>>>>>> b690631eae9bf55c98859c8f73b767fe63c16a41
+var container2 = $("#container2");
+
+function getjokeApi() {
+  var requestUrl =
+  "https://v2.jokeapi.dev/joke/any?blacklistFlags=nsfw,religious,political,racist,sexist,explicit&idRange=0-1&amount=2";
+  
+  fetch(requestUrl)
+  .then(function (response) {
+    return response.json();
+  })
+  .then(function (data) {
+    console.log(data);
+    var listItem = document.createElement("p");
+    data.jokes.forEach(element => {
+      listItem.textContent = data.jokes;
+      container2.append(listItem);
+      
+    });
+      
+    
+  });
+}
+getjokeApi();
+
+
 
       modalButton.on("click", function (event) {
         $("#aboutUsModal").addClass("is-active");
@@ -93,13 +104,25 @@ fetch(
         dropdown.classList.toggle("is-active");
       });
     });
-<<<<<<< HEAD
+
 }
-=======
+
 };
 
-// Button.addEventListener('click', getjokeApi);
-// getjokeApi();
+const saveButton = $("#saveBtn");
+const savedContent = $("#savedFavorites");
+
+//click on save btn
+// saved to local storage
+//and display multiple saves to our favorites category.
+//make saved favorites clickable items on the page for display later.
+function creatSave(){
+  const saveFavs = $("<li>"); 
+}
+
+$(saveButton).on("click", creatSave)
+
+
 
 modalButton.on("click", function (event) {
   $("#aboutUsModal").addClass("is-active");
@@ -108,8 +131,10 @@ modalButton.on("click", function (event) {
 $(".modal-close").on("click", function (e) {
   $("#aboutUsModal").removeClass("is-active");
 });
+
     $("#aboutUsModal").removeClass("is-active");
-})
+
+
 
 $(".modal-background").on("click", function (e) {
     $("#aboutUsModal").removeClass("is-active");
@@ -125,6 +150,7 @@ dropdown.addEventListener("click", function (event) {
   //classList.toggle - it toggles between adding and removing a class name from an element
   dropdown.classList.toggle("is-active");
 });
+
 // fetch('https://api.pgamerx.com/v3/ai/response?message=encodeURIComponent("Hello")&type=stable', {
 //         method: 'get',
 //         headers: { 'x-api-key': 'dBzuyLCxJ06r' },
@@ -149,4 +175,4 @@ dropdown.addEventListener("click", function (event) {
 //           alert("Unable to gather weather data!");
 //         });
 //     };
->>>>>>> b690631eae9bf55c98859c8f73b767fe63c16a41
+
