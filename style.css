@@ -1,3 +1,16 @@
 .modal-background {
     background: white;
 }
+
+body { background-color: cornflowerblue;
+        font-family: fantasy;
+
+}
+
+.container1 {
+    background-color: aquamarine;
+}
+
+.container2 {
+    background-color: aliceblue;
+}
