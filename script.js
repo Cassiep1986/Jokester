@@ -36,14 +36,11 @@ getjokeApi();
 
 
 
-debugger;
 
 var dropdown = document.querySelector('.dropdown');
-    console.log("outside event");
 
 //addEventListener - attaches an event handler to the specified element.
 dropdown.addEventListener('click', function (event) {
-    console.log("event fired");
     //event.stopPropagation() - it stops the bubbling of an event to parent elements, by preventing parent event handlers from being executed
     event.stopPropagation();
 
