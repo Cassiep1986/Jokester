@@ -1,5 +1,6 @@
-var jokeList = document.querySelector("ul");
-var Button = document.getElementById("button");
+var jokeList = $("#ul");
+var Button = $("#button");
+var modalButton = $("#aboutUs");
 
 function getjokeApi() {
     var requestUrl = 'https://v2.jokeapi.dev/joke/Pun?blacklistFlags=nsfw,religious,political,racist,sexist,explicit';
@@ -35,7 +36,15 @@ getjokeApi();
 
 
 
+modalButton.on("click", function (event) {
+    $("#aboutUsModal").addClass("is-active");
 
+});
+
+$(".modal-close").on("click", function (e) {
+    $("#aboutUsModal").removeClass("is-active");
+
+})
 
 var dropdown = document.querySelector('.dropdown');
 
