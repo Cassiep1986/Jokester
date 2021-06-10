@@ -1,8 +1,6 @@
-<<<<<<< Updated upstream
 var jokeList = $("#ul");
 var Button = $("#button");
 var modalButton = $("#aboutUs");
-=======
 const saveButton = $("#saveBtn");
 const savedContent = $("#savedFavorites");
 
@@ -24,7 +22,6 @@ $(saveButton).on("click", creatSave)
   
   // var jokeList = document.querySelector('ul')
   // var Button = document.getElementById('button');
->>>>>>> Stashed changes
 
 // function getApi() {
 //   var requestUrl = 'https://v2.jokeapi.dev/joke/Pun?blacklistFlags=nsfw,religious,political,racist,sexist,explicit';
@@ -45,7 +42,6 @@ $(saveButton).on("click", creatSave)
 
 // Button.addEventListener('click', getApi);
 
-<<<<<<< Updated upstream
 fetch(
   'https://api.pgamerx.com/v3/ai/response?message=encodeURIComponent("Hello")&type=stable',
   {
@@ -84,6 +80,12 @@ modalButton.on("click", function (event) {
 $(".modal-close").on("click", function (e) {
   $("#aboutUsModal").removeClass("is-active");
 });
+    $("#aboutUsModal").removeClass("is-active");
+})
+
+$(".modal-background").on("click", function (e) {
+    $("#aboutUsModal").removeClass("is-active");
+})
 
 var dropdown = document.querySelector(".dropdown");
 
@@ -95,7 +97,6 @@ dropdown.addEventListener("click", function (event) {
   //classList.toggle - it toggles between adding and removing a class name from an element
   dropdown.classList.toggle("is-active");
 });
-=======
 // fetch('https://api.pgamerx.com/v3/ai/response?message=encodeURIComponent("Hello")&type=stable', {
 //         method: 'get',
 //         headers: { 'x-api-key': 'dBzuyLCxJ06r' },
@@ -120,7 +121,3 @@ dropdown.addEventListener("click", function (event) {
 //           alert("Unable to gather weather data!");
 //         });
 //     };
-
-
-
->>>>>>> Stashed changes
