@@ -10,19 +10,18 @@ const jokeDay = $("#jokeOfDay");
 //and display multiple saves to our favorites category.
 //make saved favorites clickable items on the page for display later.
 
-function getJokeApi() {
+jokeOftheDay();
+
+function jokeOftheDay() {
   const requestUrl =
-    "https://v2.jokeapi.dev/joke/any?blacklistFlags=nsfw,religious,political,racist,sexist,explicit&idRange=0-1&amount=2";
+    "https://v2.jokeapi.dev/joke/Any?blacklistFlags=nsfw,religious,political,racist,sexist,explicit&type=single";
   fetch(requestUrl)
     .then(function (response) {
       return response.json();
     })
     .then(function (data) {
-      const listItem = $("<p>");
-      data.jokes.forEach((data) => {
-        listItem.html = data.jokes;
-        jokeDay.append(listItem);
-      });
+      $("#jokeOfDay").text(data.joke);
+      console.log(data);
     });
 }
 
