@@ -1,7 +1,7 @@
 var jokeList = $("#ul");
 var Button = $("#button");
 var modalButton = $("#aboutUs");
-const saveButton = $("#saveBtn");
+var saveButton = $("#saveBtn");
 const savedContent = $("#savedFavorites");
 
 //click on save btn
@@ -23,6 +23,11 @@ function jokeOftheDay() {
       console.log(data);
     });
 }
+saveButton.on("click", function (event){
+  var joke =$("#jokeOfDay").text()
+  console.log(joke);
+  localStorage.setItem('joke1 save', joke);
+});
 
 modalButton.on("click", function (event) {
   $("#aboutUsModal").addClass("is-active");
