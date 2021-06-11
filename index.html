@@ -1,107 +1,106 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+
+<head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>JOKESTER!</title>
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/bulma@0.9.2/css/bulma.min.css"
-    />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.2/css/bulma.min.css" />
     <link rel="stylesheet" type="text/css" href="./style.css" />
-  </head>
+</head>
 
-  <body>
+<body>
     <nav class="navbar" role="navigation" aria-label="main navigation">
-      <div class="navbar-brand">
-        <strong>
-          <h1>JOKESTER!</h1>
-        </strong>
-      </div>
-
-      <div id="navbarBasicExample" class="navbar-menu">
-        <div class="navbar-end">
-          <a id="aboutUs" class="button is-primary is-light"> About us </a>
+        <div class="navbar-brand">
+            <strong>
+                <h1>JOKESTER!</h1>
+            </strong>
         </div>
-      </div>
+
+        <div id="navbarBasicExample" class="navbar-menu">
+            <div class="navbar-end">
+                <a id="aboutUs" class="button is-primary is-light"> About us </a>
+            </div>
+        </div>
     </nav>
     <div class="container is-fluid">
-      <div class="tile is-ancestor">
-        <div class="tile is-parent is-vertical is-3">
-          <div class="tile is-child">
-            <!--Unordered list element -->
-            <div class="dropdown">
-              <div class="dropdown-trigger">
-                <button
-                  class="button"
-                  aria-haspopup="true"
-                  aria-controls="dropdown-menu"
-                >
-                  <span>Joke Categories</span>
-                  <span class="icon is-small">
-                    <i class="fa fa-angle-down" aria-hidden="true"></i>
-                  </span>
-                </button>
-              </div>
-              <div class="dropdown-menu" id="dropdown-menu" role="menu">
-                <div class="dropdown-content">
-                  <a href="#" class="dropdown-item">India</a>
-                  <a class="dropdown-item">England</a>
-                  <a href="#" class="dropdown-item is-active">Australia</a>
-                  <a href="#" class="dropdown-item">Srilanka</a>
-                  <hr class="dropdown-divider" />
-                  <a href="#" class="dropdown-item">South Africa</a>
+        <div class="tile is-ancestor">
+            <div class="tile is-parent is-vertical is-3">
+                <div class="tile is-child">
+                    <!--Unordered list element -->
+                    <div class="dropdown">
+                        <div class="dropdown-trigger">
+                            <button class="button" aria-haspopup="true" aria-controls="dropdown-menu">
+                                <span>Joke Categories</span>
+                                <span class="icon is-small">
+                                    <i class="fa fa-angle-down" aria-hidden="true"></i>
+                                </span>
+                            </button>
+                        </div>
+                        <div class="dropdown-menu" id="dropdown-menu" role="menu">
+                            <div class="dropdown-content">
+                                <a href="#" class="dropdown-item">Programming</a>
+                                <a class="dropdown-item">Misc.</a>
+                                <a href="#" class="dropdown-item is-active">Dark</a>
+                                <a href="#" class="dropdown-item">Pun</a>
+                                <a href="#" class="dropdown-item">Spooky</a>
+                                <a href="#" class="dropdown-item">Christmas</a>
+                                <a href="#" class="dropdown-item">Dad Jokes</a>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-              </div>
+                <div class="tile is-child">
+                    <div>
+                        <h3>FAVORITE JOKES</h3>
+                        <ul id="SavedFavorites">
+                            <li>joke!</li>
+                            <li>joke!</li>
+                            <li>joke!</li>
+                            <li>joke!</li>
+                            <li>joke!</li>
+                        </ul>
+                    </div>
+                </div>
             </div>
-          </div>
-          <div class="tile is-child">
-            <div>
-              <h3>FAVORITE JOKES</h3>
-              <ul id="SavedFavorites">
-                  <li>joke!</li>
-                  <li>joke!</li>
-                  <li>joke!</li>
-                  <li>joke!</li>
-                  <li>joke!</li>
-              </ul>
+            <!-- </div> -->
+            <div class="tile is-parent is-9">
+                <div class="tile is-child is-6 container1">
+                    <a href="#Your Joke of The Day">
+                        <h2>YOUR JOKE OF THE DAY</h2>
+
+                    </a>
+                </div>
+                <div class="tile is-child is-6 container1">
+                    <a href="#Your Joke of The Day">
+                        <h2>Joke of the day!</h2>
+                        <p id="jokeOfDay"></p>
+                        <button id="saveBtn">save</button>
+                    </a>
+                </div>
             </div>
-          </div>
         </div>
-        <!-- </div> -->
-        <div class="tile is-parent is-9">
-          <div class="tile is-child is-6 container1">
-            <a href="#Your Joke of The Day">
-              <h2>YOUR JOKE OF THE DAY</h2>
-              
-            </a>
-          </div>
-          <div class="tile is-child is-6 container1">
-            <a href="#Your Joke of The Day">
-              <h2>Joke of the day!</h2>
-              <p id="jokeOfDay"></p>
-              <button id="saveBtn">save</button>
-            </a>
-          </div>
+    </div>
+
+    <div class="tile is-ancestor">
+        <div class="tile is-parent">
+            <div class="tile is-child" id="jokesMain">hello</div>
         </div>
-      </div>
     </div>
 
     <div id="aboutUsModal" class="modal">
-      <div class="modal-background"></div>
-      <div class="modal-content">
-        We are a team of four, making jokes easier for us all :) Adam Burch,
-        Cassandra Pacheco, Joe Amador, Mark Manalo.
-      </div>
-      <button class="modal-close is-large" aria-label="close"></button>
+        <div class="modal-background"></div>
+        <div class="modal-content">
+            We are a team of four, making jokes easier for us all :) Adam Burch,
+            Cassandra Pacheco, Joe Amador, Mark Manalo.
+        </div>
+        <button class="modal-close is-large" aria-label="close"></button>
     </div>
 
-    <script
-      src="https://code.jquery.com/jquery-3.6.0.min.js"
-      integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
-      crossorigin="anonymous"
-    ></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     <script src="script.js"></script>
-  </body>
+</body>
+
 </html>

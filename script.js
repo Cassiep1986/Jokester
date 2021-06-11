@@ -3,7 +3,6 @@ var Button = $("#button");
 var modalButton = $("#aboutUs");
 const saveButton = $("#saveBtn");
 const savedContent = $("#savedFavorites");
-const jokeDay = $("#jokeOfDay");
 
 //click on save btn
 // saved to local storage
@@ -46,4 +45,12 @@ dropdown.addEventListener("click", function (event) {
 
   //classList.toggle - it toggles between adding and removing a class name from an element
   dropdown.classList.toggle("is-active");
+  var category = event.target.text;
+  console.log(category);
+  fetch(`https://v2.jokeapi.dev/joke/${category}?blacklistFlags=nsfw,religious,political,racist,sexist,explicit&type=single&amount=1`)
+  .then(function(response){return response.json()})
+  .then(function(data) {
+      console.log(data.joke);
+      $("#jokesMain").text(data.joke);
+  })
 });
