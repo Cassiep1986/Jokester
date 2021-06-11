@@ -27,6 +27,7 @@ saveButton.on("click", function (event){
   var joke =$("#jokeOfDay").text()
   console.log(joke);
   localStorage.setItem('joke1 save', joke);
+  appendjoke();
 });
 
 modalButton.on("click", function (event) {
@@ -59,3 +60,8 @@ dropdown.addEventListener("click", function (event) {
       $("#jokesMain").text(data.joke);
   })
 });
+
+function appendjoke() {
+var joke1 = localStorage.getItem('joke1 save');
+$("<li>"+ joke1+"</li>").appendTo(savedContent);
+ }
