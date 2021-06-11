@@ -47,10 +47,10 @@ dropdown.addEventListener("click", function (event) {
   dropdown.classList.toggle("is-active");
   var category = event.target.text;
   console.log(category);
-  fetch(`https://v2.jokeapi.dev/joke/${category}?blacklistFlags=nsfw,religious,political,racist,sexist,explicit&type=single&amount=10`)
-  .then(function(){return response.json})
+  fetch(`https://v2.jokeapi.dev/joke/${category}?blacklistFlags=nsfw,religious,political,racist,sexist,explicit&type=single&amount=1`)
+  .then(function(response){return response.json()})
   .then(function(data) {
-      console.log(data);
+      console.log(data.joke);
       $("#jokesMain").text(data.joke);
   })
 });
