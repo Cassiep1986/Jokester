@@ -23,10 +23,10 @@ function jokeOftheDay() {
       console.log(data);
     });
 }
-saveButton.on("click", function (event) {
-  var joke = $("#jokeOfDay").text();
+saveButton.on("click", function (event){
+  var joke =$("#jokeOfDay").text()
   console.log(joke);
-  localStorage.setItem("joke1 save", joke);
+  localStorage.setItem('joke1 save', joke);
   appendjoke();
 });
 
@@ -53,21 +53,15 @@ dropdown.addEventListener("click", function (event) {
   dropdown.classList.toggle("is-active");
   var category = event.target.text;
   console.log(category);
-  for (let i = 0; i < 10; i++) {
-    fetch(
-      `https://v2.jokeapi.dev/joke/${category}?blacklistFlags=nsfw,religious,political,racist,sexist,explicit&type=single&amount=1`
-    )
-      .then(function (response) {
-        return response.json();
-      })
-      .then(function (data) {
-        console.log(data);
-        $("#jokesMain").text(data.joke);
-      });
-  }
+  fetch(`https://v2.jokeapi.dev/joke/${category}?blacklistFlags=nsfw,religious,political,racist,sexist,explicit&type=single&amount=1`)
+  .then(function(response){return response.json()})
+  .then(function(data) {
+      console.log(data.joke);
+      $("#jokesMain").text(data.joke);
+  })
 });
 
 function appendjoke() {
-  var joke1 = localStorage.getItem("joke1 save");
-  $("<li>" + joke1 + "</li>").appendTo(savedContent);
-}
+var joke1 = localStorage.getItem('joke1 save');
+$("<li>"+ joke1+"</li>").appendTo(savedContent);
+ }
