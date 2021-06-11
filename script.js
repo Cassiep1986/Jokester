@@ -3,7 +3,6 @@ var Button = $("#button");
 var modalButton = $("#aboutUs");
 const saveButton = $("#saveBtn");
 const savedContent = $("#savedFavorites");
-const jokeDay = $("#jokeOfDay");
 
 //click on save btn
 // saved to local storage
