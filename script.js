@@ -4,25 +4,25 @@ var modalButton = $("#aboutUs");
 var saveButton = $("#saveBtn");
 const savedContent = $("#savedFavorites");
 
-//click on save btn
+// click on save btn
 // saved to local storage
-//and display multiple saves to our favorites category.
-//make saved favorites clickable items on the page for display later.
+// and display multiple saves to our favorites category.
+// make saved favorites clickable items on the page for display later.
 
-// jokeOftheDay();
+jokeOftheDay();
 
-// function jokeOftheDay() {
-//   const requestUrl =
-//     "https://v2.jokeapi.dev/joke/Any?blacklistFlags=nsfw,religious,political,racist,sexist,explicit&type=single";
-//   fetch(requestUrl)
-//     .then(function (response) {
-//       return response.json();
-//     })
-//     .then(function (data) {
-//       $("#jokeOfDay").text(data.joke);
-//       console.log(data);
-//     });
-// }
+function jokeOftheDay() {
+  const requestUrl =
+    "https://v2.jokeapi.dev/joke/Any?blacklistFlags=nsfw,religious,political,racist,sexist,explicit&type=single";
+  fetch(requestUrl)
+    .then(function (response) {
+      return response.json();
+    })
+    .then(function (data) {
+      $("#jokeOfDay").text(data.joke);
+      console.log(data);
+    });
+}
 saveButton.on("click", function (event) {
   var joke = $("#jokeOfDay").text();
   console.log(joke);
