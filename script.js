@@ -9,24 +9,24 @@ const savedContent = $("#savedFavorites");
 //and display multiple saves to our favorites category.
 //make saved favorites clickable items on the page for display later.
 
-jokeOftheDay();
+// jokeOftheDay();
 
-function jokeOftheDay() {
-  const requestUrl =
-    "https://v2.jokeapi.dev/joke/Any?blacklistFlags=nsfw,religious,political,racist,sexist,explicit&type=single";
-  fetch(requestUrl)
-    .then(function (response) {
-      return response.json();
-    })
-    .then(function (data) {
-      $("#jokeOfDay").text(data.joke);
-      console.log(data);
-    });
-}
-saveButton.on("click", function (event){
-  var joke =$("#jokeOfDay").text()
+// function jokeOftheDay() {
+//   const requestUrl =
+//     "https://v2.jokeapi.dev/joke/Any?blacklistFlags=nsfw,religious,political,racist,sexist,explicit&type=single";
+//   fetch(requestUrl)
+//     .then(function (response) {
+//       return response.json();
+//     })
+//     .then(function (data) {
+//       $("#jokeOfDay").text(data.joke);
+//       console.log(data);
+//     });
+// }
+saveButton.on("click", function (event) {
+  var joke = $("#jokeOfDay").text();
   console.log(joke);
-  localStorage.setItem('joke1 save', joke);
+  localStorage.setItem("joke1 save", joke);
   appendjoke();
 });
 
@@ -53,15 +53,20 @@ dropdown.addEventListener("click", function (event) {
   dropdown.classList.toggle("is-active");
   var category = event.target.text;
   console.log(category);
-  fetch(`https://v2.jokeapi.dev/joke/${category}?blacklistFlags=nsfw,religious,political,racist,sexist,explicit&type=single&amount=1`)
-  .then(function(response){return response.json()})
-  .then(function(data) {
-      console.log(data.joke);
+ 
+    
+  } fetch(
+    `https://v2.jokeapi.dev/joke/${category}?blacklistFlags=nsfw,religious,political,racist,sexist,explicit&type=single&amount=1`
+  )
+    .then(function (response) {
+      return response.json();
+    })
+    .then(function (data) {
       $("#jokesMain").text(data.joke);
-  })
+    });
 });
 
 function appendjoke() {
-var joke1 = localStorage.getItem('joke1 save');
-$("<li>"+ joke1+"</li>").appendTo(savedContent);
- }
+  var joke1 = localStorage.getItem("joke1 save");
+  $("<li>" + joke1 + "</li>").appendTo(savedContent);
+}
