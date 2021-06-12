@@ -27,11 +27,15 @@ saveButton.on("click", function (event) {
   var joke = $("#jokeOfDay").text();
   console.log(joke);
 <<<<<<< HEAD
+<<<<<<< HEAD
   localStorage.setItem("joke1 save", joke);
   appendjoke();
 =======
   localStorage.setItem('joke1 save', joke);
 >>>>>>> parent of bd2e9ed (saved jokes to side of page)
+=======
+  localStorage.setItem('joke1 save', joke);
+>>>>>>> parent of fc771ff (cleaning)
 });
 
 modalButton.on("click", function (event) {
@@ -71,6 +75,7 @@ dropdown.addEventListener("click", function (event) {
   }
 });
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 function appendjoke() {
   var joke1 = localStorage.getItem("joke1 save");
@@ -78,3 +83,5 @@ function appendjoke() {
 }
 =======
 >>>>>>> parent of bd2e9ed (saved jokes to side of page)
+=======
+>>>>>>> parent of fc771ff (cleaning)
