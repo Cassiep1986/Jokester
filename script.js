@@ -3,6 +3,7 @@ var Button = $("#button");
 var modalButton = $("#aboutUs");
 var saveButton = $("#saveBtn");
 const savedContent = $("#savedFavorites");
+var savedJokesArray = localStorage.getItem("jokes1 save") ? localStorage.getItem("jokes1 save") :[];
 
 // click on save btn
 // saved to local storage
@@ -20,12 +21,11 @@ function jokeOftheDay() {
     })
     .then(function (data) {
       $("#jokeOfDay").text(data.joke);
-      console.log(data);
     });
 }
-saveButton.on("click", function (event) {
+saveButton.on("click", function (e) {
   var joke = $("#jokeOfDay").text();
-  console.log(joke);
+
   localStorage.setItem("joke1 save", joke);
   appendjoke();
 });
@@ -52,20 +52,29 @@ dropdown.addEventListener("click", function (event) {
   //classList.toggle - it toggles between adding and removing a class name from an element
   dropdown.classList.toggle("is-active");
   var category = event.target.text;
-  console.log(category);
- 
-    
-  } fetch(
-    `https://v2.jokeapi.dev/joke/${category}?blacklistFlags=nsfw,religious,political,racist,sexist,explicit&type=single&amount=1`
+
+  fetch(
+    `https://v2.jokeapi.dev/joke/${category}?blacklistFlags=nsfw,religious,political,racist,sexist,explicit&type=single&amount=10`
   )
     .then(function (response) {
       return response.json();
     })
     .then(function (data) {
-      $("#jokesMain").text(data.joke);
+      //itirate through joeks array creating li's and appending to jokesMain, with the joke text in li.
+      data.jokes.forEach((e) => {
+        $("#jokesMain").append(
+          $(`<li>${e.joke}<button class="jokeSaver">Save</button></li> <br>`)
+        );
+      });
+      $(".jokeSaver").on("click", function (event) {
+        console.log("jokeSaverClick");
+        var joke = $(this).parent().text();
+        console.log(joke);
+        localStorage.setItem("joke1 save", joke);
+        appendjoke();
+      });
     });
 });
-
 function appendjoke() {
   var joke1 = localStorage.getItem("joke1 save");
   $("<li>" + joke1 + "</li>").appendTo(savedContent);
