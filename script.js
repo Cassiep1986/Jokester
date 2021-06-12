@@ -11,6 +11,7 @@ var savedJokesArray = localStorage.getItem("jokes1 save") ? localStorage.getItem
 // make saved favorites clickable items on the page for display later.
 
 jokeOftheDay();
+getSavedValue();
 
 function jokeOftheDay() {
   const requestUrl =
@@ -29,6 +30,15 @@ saveButton.on("click", function (e) {
   localStorage.setItem("joke1 save", joke);
   appendjoke();
 });
+//get the saved value function - return the value of "v" from localStorage. 
+function getSavedValue  (){
+  var joke1 = localStorage.getItem("joke1 save");
+  if (!localStorage.getItem("joke1 save", joke1)) {
+    return $("<li>" + joke1 + "</li>").appendTo(savedContent);;// You can change this to your defualt value. 
+  }
+  
+  return $("<li>" + joke1 + "</li>").appendTo(savedContent);;
+}
 
 modalButton.on("click", function (event) {
   $("#aboutUsModal").addClass("is-active");
