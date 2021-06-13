@@ -3,7 +3,9 @@ var Button = $("#button");
 var modalButton = $("#aboutUs");
 var saveButton = $("#saveBtn");
 const savedContent = $("#savedFavorites");
-var savedJokesArray = localStorage.getItem("jokes1 save") ? localStorage.getItem("jokes1 save") :[];
+var savedJokesArray = localStorage.getItem("jokes1 save")
+  ? localStorage.getItem("jokes1 save")
+  : [];
 
 //click on save btn
 // saved to local storage
@@ -26,21 +28,21 @@ function jokeOftheDay() {
     });
 }
 
-saveButton.on("click", function (e){
-  var joke =$("#jokeOfDay").text()
+saveButton.on("click", function (e) {
+  var joke = $("#jokeOfDay").text();
 
-  localStorage.setItem('joke1 save', joke);
+  localStorage.setItem("joke1 save", joke);
   appendjoke();
 });
 
-//get the saved value function - return the value of "v" from localStorage. 
-function getSavedValue  (){
+//get the saved value function - return the value of "v" from localStorage.
+function getSavedValue() {
   var joke1 = localStorage.getItem("joke1 save");
   if (!localStorage.getItem("joke1 save", joke1)) {
-    return $("<li>" + joke1 + "</li>").appendTo(savedContent);;// You can change this to your defualt value. 
+    return $("<li>" + joke1 + "</li>").appendTo(savedContent); // You can change this to your defualt value.
   }
 
-  return $("<li>" + joke1 + "</li>").appendTo(savedContent);;
+  return $("<li>" + joke1 + "</li>").appendTo(savedContent);
 }
 
 modalButton.on("click", function (event) {
@@ -67,7 +69,7 @@ dropdown.addEventListener("click", function (event) {
   //classList.toggle - it toggles between adding and removing a class name from an element
   dropdown.classList.toggle("is-active");
   var category = event.target.text;
-  
+
   fetch(
     `https://v2.jokeapi.dev/joke/${category}?blacklistFlags=nsfw,religious,political,racist,sexist,explicit&type=single&amount=10`
   )
@@ -80,7 +82,7 @@ dropdown.addEventListener("click", function (event) {
         $("#jokesMain").append(
           $(`<li>${e.joke}<button class="jokeSaver">Save</button></li> <br>`)
         );
-});
+      });
       $(".jokeSaver").on("click", function (event) {
         console.log("jokeSaverClick");
         var joke = $(this).parent().text();
@@ -89,7 +91,9 @@ dropdown.addEventListener("click", function (event) {
         appendjoke();
       });
     });
-function appendjoke() {
-var joke1 = localStorage.getItem('joke1 save');
-$("<li>"+ joke1+"</li>").appendTo(savedContent);
- }});
+  });
+  
+  function appendjoke() {
+    var joke1 = localStorage.getItem("joke1 save");
+    $("<li>" + joke1 + "</li>").appendTo(savedContent);
+  };
