@@ -3,9 +3,9 @@ var Button = $("#button");
 var modalButton = $("#aboutUs");
 var saveButton = $("#saveBtn");
 const savedContent = $("#savedFavorites");
-var savedJokesArray = localStorage.getItem("jokes1 save")
-  ? localStorage.getItem("jokes1 save")
-  : [];
+// var savedJokesArray = localStorage.getItem("jokes1 save")
+//   ? localStorage.getItem("jokes1 save")
+//   : [];
 
 //click on save btn
 // saved to local storage
@@ -13,7 +13,7 @@ var savedJokesArray = localStorage.getItem("jokes1 save")
 //make saved favorites clickable items on the page for display later.
 
 jokeOftheDay();
-// getSavedValue();
+getSavedValue();
 
 function jokeOftheDay() {
   const requestUrl =
@@ -29,24 +29,25 @@ function jokeOftheDay() {
 
 saveButton.on("click", function (e) {
   var new_joke = $("#jokeOfDay").text();
-
+  // if there is nothing at the start then save a empty array
   if (localStorage.getItem("joke1 save") == null) {
     localStorage.setItem("joke1 save", "[]");
   }
+  //get old joke and put it to the new data
   var old_joke = JSON.parse(localStorage.getItem("joke1 save"));
   old_joke.push(new_joke);
+  // save the old + new joke to the local Storage.
   localStorage.setItem("joke1 save", JSON.stringify(old_joke));
   appendjoke();
 });
 
 //get the saved value function - return the value of "v" from localStorage.
 function getSavedValue() {
-  var joke1 = localStorage.getItem("joke1 save");
-  if (!localStorage.getItem("joke1 save", joke1)) {
-    return;
-  }
+  var joke1 = JSON.parse(localStorage.getItem("joke1 save" || "[]"));
 
-  return $("<li>" + joke1 + "</li>").appendTo(savedContent);
+  joke1.forEach(function (saved) {
+    savedContent.append($("<li></li>").text(saved));
+  });
 }
 
 modalButton.on("click", function (event) {
@@ -88,7 +89,9 @@ dropdown.addEventListener("click", function (event) {
         );
       });
       $(".jokeSaver").on("click", function (event) {
+        // new joke is being displayed  on parent ul as a li.
         var new_joke = $(this).parent().text();
+        // if null then save a empty array
         if (localStorage.getItem("joke1 save") == null) {
           localStorage.setItem("joke1 save", "[]");
         }
@@ -102,6 +105,8 @@ dropdown.addEventListener("click", function (event) {
 });
 
 function appendjoke() {
-  var joke1 = localStorage.getItem("joke1 save");
-  $("<li>" + joke1 + "</li>").appendTo(savedContent);
+  if (localStorage.getItem("data") != null) {
+    var joke1 = localStorage.getItem("joke1 save");
+    $("<li>" + joke1 + "</li>").appendTo(savedContent);
+  }
 }
