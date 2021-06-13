@@ -3,12 +3,14 @@ var Button = $("#button");
 var modalButton = $("#aboutUs");
 var saveButton = $("#saveBtn");
 const savedContent = $("#savedFavorites");
-var savedJokesArray = localStorage.getItem("jokes1 save") ? localStorage.getItem("jokes1 save") :[];
+var savedJokesArray = localStorage.getItem("jokes1 save")
+  ? localStorage.getItem("jokes1 save")
+  : [];
 
-// click on save btn
+//click on save btn
 // saved to local storage
-// and display multiple saves to our favorites category.
-// make saved favorites clickable items on the page for display later.
+//and display multiple saves to our favorites category.
+//make saved favorites clickable items on the page for display later.
 
 jokeOftheDay();
 getSavedValue();
@@ -22,22 +24,25 @@ function jokeOftheDay() {
     })
     .then(function (data) {
       $("#jokeOfDay").text(data.joke);
+      console.log(data);
     });
 }
+
 saveButton.on("click", function (e) {
   var joke = $("#jokeOfDay").text();
 
   localStorage.setItem("joke1 save", joke);
   appendjoke();
 });
-//get the saved value function - return the value of "v" from localStorage. 
-function getSavedValue  (){
+
+//get the saved value function - return the value of "v" from localStorage.
+function getSavedValue() {
   var joke1 = localStorage.getItem("joke1 save");
   if (!localStorage.getItem("joke1 save", joke1)) {
-    return $("<li>" + joke1 + "</li>").appendTo(savedContent);;// You can change this to your defualt value. 
+    return $("<li>" + joke1 + "</li>").appendTo(savedContent); // You can change this to your defualt value.
   }
-  
-  return $("<li>" + joke1 + "</li>").appendTo(savedContent);;
+
+  return $("<li>" + joke1 + "</li>").appendTo(savedContent);
 }
 
 modalButton.on("click", function (event) {
@@ -55,8 +60,10 @@ $(".modal-background").on("click", function (e) {
 var dropdown = document.querySelector(".dropdown");
 
 //addEventListener - attaches an event handler to the specified element.
+
 dropdown.addEventListener("click", function (event) {
   //event.stopPropagation() - it stops the bubbling of an event to parent elements, by preventing parent event handlers from being executed
+
   event.stopPropagation();
 
   //classList.toggle - it toggles between adding and removing a class name from an element
@@ -84,8 +91,9 @@ dropdown.addEventListener("click", function (event) {
         appendjoke();
       });
     });
-});
-function appendjoke() {
-  var joke1 = localStorage.getItem("joke1 save");
-  $("<li>" + joke1 + "</li>").appendTo(savedContent);
-}
+  });
+  
+  function appendjoke() {
+    var joke1 = localStorage.getItem("joke1 save");
+    $("<li>" + joke1 + "</li>").appendTo(savedContent);
+  };
