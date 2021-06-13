@@ -38,13 +38,15 @@ saveButton.on("click", function (e) {
   old_joke.push(new_joke);
   // save the old + new joke to the local Storage.
   localStorage.setItem("joke1 save", JSON.stringify(old_joke));
-  appendjoke();
+  getSavedValue();
 });
 
 //get the saved value function - return the value of "v" from localStorage.
 function getSavedValue() {
   var joke1 = JSON.parse(localStorage.getItem("joke1 save" || "[]"));
-
+  if (localStorage.getItem("joke1 save") === null) {
+    return;
+  }
   joke1.forEach(function (saved) {
     savedContent.append($("<li></li>").text(saved));
   });
@@ -99,14 +101,7 @@ dropdown.addEventListener("click", function (event) {
         old_joke.push(new_joke);
         localStorage.setItem("joke1 save", JSON.stringify(old_joke));
 
-        appendjoke();
+        getSavedValue();
       });
     });
 });
-
-function appendjoke() {
-  if (localStorage.getItem("data") != null) {
-    var joke1 = localStorage.getItem("joke1 save");
-    $("<li>" + joke1 + "</li>").appendTo(savedContent);
-  }
-}
