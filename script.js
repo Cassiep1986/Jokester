@@ -16,9 +16,9 @@ const savedContent = $("#savedFavorites");
 
 jokeOftheDay();
 getSavedValue();
-geekjokeOftheDay();
+geekJokeofTheday();
 
-function geekjokeOftheDay() {
+function geekJokeofTheday() {
   const requestUrl =
     "https://geek-jokes.sameerkumar.website/api?format=json";
   fetch(requestUrl)
@@ -26,7 +26,7 @@ function geekjokeOftheDay() {
       return response.json();
     })
     .then(function (data) {
-      $("#geekjokeofDay").text(data.joke);
+      $("#geekJokeofDay").text(data.joke);
     });
 }
 
@@ -58,7 +58,7 @@ saveButton.on("click", function (e) {
 });
 
 saveButton2.on("click", function (e) {
-  var new_joke = $("#jokeOfDay").text();
+  var new_joke = $("#geekJokeofDay").text();
   // if there is nothing at the start then save a empty array
   if (localStorage.getItem("joke1 save") == null) {
     localStorage.setItem("joke1 save", "[]");
@@ -78,7 +78,7 @@ function getSavedValue() {
     return;
   }
   joke1.forEach(function (saved) {
-    savedContent.append($("<li></li>").text(saved));
+    savedContent.append($("<li></li><br>").text(saved));
   });
 }
 
@@ -117,7 +117,7 @@ dropdown.addEventListener("click", function (event) {
       //itirate through joeks array creating li's and appending to jokesMain, with the joke text in li.
       data.jokes.forEach((e) => {
         $("#jokesMain").append(
-          $(`<li>${e.joke}<button class="jokeSaver">Save</button></li> <br>`)
+          $(`<li>${e.joke}<button class="jokeSaver">Save</button></ol> <li>`)
         );
       });
       $(".jokeSaver").on("click", function (event) {
@@ -138,4 +138,7 @@ dropdown.addEventListener("click", function (event) {
 
 saveButton.click(function(){
   saveButton.hide();
+})
+saveButton2.click(function(){
+  saveButton2.hide();
 })
