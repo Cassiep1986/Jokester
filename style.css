@@ -3,10 +3,12 @@
 }
 
 body {
-    font-family: 'Reem Kufi', sans-serif;
+    background-image: linear-gradient(to right, yellow, green, blue, purple);
+    
     
 }
 
 .jokester {
+    font-family: 'Gloria Hallelujah', cursive;
     
 }
