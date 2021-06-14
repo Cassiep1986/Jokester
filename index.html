@@ -9,20 +9,28 @@
     <link rel="stylesheet" type="text/css" href="./style.css" />
 </head>
 <body>
-    <nav class="navbar" role="navigation" aria-label="main navigation">
-        <div class="navbar-brand">
-            <strong>
-                <h1>JOKESTER!</h1>
-            </strong>
-        </div>
-        <div id="navbarBasicExample" class="navbar-menu">
-            <div class="navbar-end">
-                <a id="aboutUs" class="button is-primary is-light"> About us </a>
-            </div>
-        </div>
-    </nav>
-    <div class="container is-fluid">
-        <div class="tile is-ancestor">
+<div class="tile is-ancestor">
+    <div class="tile">
+        <div class= "tile is-parent is-10">  
+            <h1 class = "tile is-child title mt-1">JOKESTER!</h1>
+        </div>        
+            <div class= "tile is-parent">
+                <div class= "tile is-child">
+                    <nav class="navbar" role="navigation" aria-label="main navigation">
+                        <div class="navbar-brand">
+                            <div id="navbarBasicExample" class="navbar-menu">
+                                <div class="navbar-end">
+                                    <a id="aboutUs" class="button is-primary is-light"> About us </a>
+                                </div>    
+                            </div>
+                        </div>
+                    </nav>
+                </div>
+            </div>            
+        </div>    
+</div>        
+<div class="container is-fluid">
+    <div class="tile is-ancestor">
             <div class="tile is-parent is-vertical is-3">
                 <div class="tile is-child">
                     <!--Unordered list element -->
@@ -56,26 +64,24 @@
                     </div>
                 </div>
             </div>
+        <div class="tile is-vertical">
             <div class="tile is-parent is-9">
-                <div class="tile is-child is-6 container1 notification is-danger">
-                    <a href="#Your Joke of The Day">
-                        <h2>YOUR JOKE OF THE DAY</h2>
-                    </a>
+                <div class="tile is-child is-8 notification is-info">
+                    <h1 class = "title is-3">Your Joke of the day</h1>
+                    <p class="subtitle is-5"></p>       
                 </div>
-                <div class="tile is-child is-6 container1 notification is-success">
-                    <a>
-                        <h2>Joke of the day!</h2>
-                        <p id="jokeOfDay"></p>
+                <div class="tile is-child is-8 notification is-link">
+                        <h1 class = "title is-3">Joke of the day</h1>
+                        <p id="jokeOfDay" class="subtitle is-5"></p>
                         <button id="saveBtn">save</button>
-                    </a>
                 </div>
             </div>
+            <div class="tile is-parent">
+                <div class="tile is-child notification is-success" id="jokesMain"></div>
         </div>
     </div>
-        <div class="tile is-parent">
-            <div class="tile is-child notification is-info" id="jokesMain">Main Joke</div>
-    </div>
-    <div id="aboutUsModal" class="modal">
+</div>
+        <div id="aboutUsModal" class="modal">
         <div class="modal-background"></div>
         <div class="modal-content">
             We are a team of four, making jokes easier for us all :) Adam Burch,
