@@ -3,6 +3,7 @@ var Button = $("#button");
 var modalButton = $("#aboutUs");
 var saveButton = $("#saveBtn");
 const savedContent = $("#savedFavorites");
+
 // var savedJokesArray = localStorage.getItem("jokes1 save")
 //   ? localStorage.getItem("jokes1 save")
 //   : [];
@@ -105,3 +106,6 @@ dropdown.addEventListener("click", function (event) {
       });
     });
 });
+saveButton.click(function(){
+  saveButton.hide();
+})
