@@ -2,6 +2,7 @@ var jokeList = $("#ul");
 var Button = $("#button");
 var modalButton = $("#aboutUs");
 var saveButton = $("#saveBtn");
+var saveButton2 = $("#saveBtn2");
 const savedContent = $("#savedFavorites");
 
 // var savedJokesArray = localStorage.getItem("jokes1 save")
@@ -15,6 +16,20 @@ const savedContent = $("#savedFavorites");
 
 jokeOftheDay();
 getSavedValue();
+geekjokeOftheDay();
+
+function geekjokeOftheDay() {
+  const requestUrl =
+    "https://geek-jokes.sameerkumar.website/api?format=json";
+  fetch(requestUrl)
+    .then(function (response) {
+      return response.json();
+    })
+    .then(function (data) {
+      $("#geekjokeofDay").text(data.joke);
+    });
+}
+
 
 function jokeOftheDay() {
   const requestUrl =
@@ -29,6 +44,20 @@ function jokeOftheDay() {
 }
 
 saveButton.on("click", function (e) {
+  var new_joke = $("#jokeOfDay").text();
+  // if there is nothing at the start then save a empty array
+  if (localStorage.getItem("joke1 save") == null) {
+    localStorage.setItem("joke1 save", "[]");
+  }
+  //get old joke and put it to the new data
+  var old_joke = JSON.parse(localStorage.getItem("joke1 save"));
+  old_joke.push(new_joke);
+  // save the old + new joke to the local Storage.
+  localStorage.setItem("joke1 save", JSON.stringify(old_joke));
+  getSavedValue();
+});
+
+saveButton2.on("click", function (e) {
   var new_joke = $("#jokeOfDay").text();
   // if there is nothing at the start then save a empty array
   if (localStorage.getItem("joke1 save") == null) {
@@ -106,6 +135,7 @@ dropdown.addEventListener("click", function (event) {
       });
     });
 });
+
 saveButton.click(function(){
   saveButton.hide();
 })
