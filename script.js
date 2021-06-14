@@ -19,8 +19,7 @@ getSavedValue();
 geekJokeofTheday();
 
 function geekJokeofTheday() {
-  const requestUrl =
-    "https://geek-jokes.sameerkumar.website/api?format=json";
+  const requestUrl = "https://geek-jokes.sameerkumar.website/api?format=json";
   fetch(requestUrl)
     .then(function (response) {
       return response.json();
@@ -29,7 +28,6 @@ function geekJokeofTheday() {
       $("#geekJokeofDay").text(data.joke);
     });
 }
-
 
 function jokeOftheDay() {
   const requestUrl =
@@ -72,13 +70,13 @@ saveButton2.on("click", function (e) {
 });
 
 //get the saved value function - return the value of "v" from localStorage.
-function getSavedValue() {
+function getSavedValue(event) {
   var joke1 = JSON.parse(localStorage.getItem("joke1 save" || "[]"));
   if (localStorage.getItem("joke1 save") === null) {
     return;
   }
   joke1.forEach(function (saved) {
-    savedContent.append($("<li></li><br>").text(saved));
+    savedContent.append($(`<li class="deleteSaves">${saved.slice(0, -4)}<br></br></li>`));
   });
 }
 
@@ -117,10 +115,12 @@ dropdown.addEventListener("click", function (event) {
       //itirate through joeks array creating li's and appending to jokesMain, with the joke text in li.
       data.jokes.forEach((e) => {
         $("#jokesMain").append(
-          $(`<li>${e.joke}<button class="jokeSaver">Save</button></ol> <li>`)
+          $(
+            `<li class="jokeTextarea">${e.joke}<button class="jokeSaver">Save</button></li>`
+          )
         );
       });
-      $(".jokeSaver").on("click", function (event) {
+      $(".jokeSaver").on("click", function () {
         // new joke is being displayed  on parent ul as a li.
         var new_joke = $(this).parent().text();
         // if null then save a empty array
@@ -136,9 +136,14 @@ dropdown.addEventListener("click", function (event) {
     });
 });
 
-saveButton.click(function(){
+saveButton.click(function () {
   saveButton.hide();
-})
-saveButton2.click(function(){
+});
+saveButton2.click(function () {
   saveButton2.hide();
-})
+});
+
+$("#jokesMain").on("click", ".jokeSaver,.jokeTextarea", function () {
+  $(this).hide();
+});
+
