@@ -1,40 +1,34 @@
-# **Jokester**
+# Jokester [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT) 
 
-Description
+## Description
+This application contains a collection of jokes for the user to search by category. The user will also have the ability to obtain a random joke and save their favorite jokes to local storage.
 
-This project contains a collection of jokes for the user to search by category. The user will also have the ability to obtain a random joke and save their favorite jokes to local storage.
+## Table of contents
+- [Description](#Description)
+- [Installation](#Installation)
+- [Usage](#Usage)
+- [license](#license) 
+- [Contributing](#Contributing)
+- [Questions](#Questions)
 
-User Story
+## Installation
+This application is deployed at the following link: https://cassiep1986.github.io/Jokester/
 
-AS a user
+## Usage
 
-I WANT to find jokes by category and have the ability to save them.
+The following image depicts initial use:
 
-SO THAT I can share them with friends/family later.
+![Jokester page](./Jokester_Snippet.PNG)
 
+## License
 
-![](RackMultipart20210614-4-15k0sfw_html_71ff01fcdd5539ea.png)
+This application is covered under a MIT license. 
+To learn more about this license, please visit this site: https://choosealicense.com/licenses/mit/
 
-APIs used in the project are as follows:
+## Contributing
+To contribute to this repo, please contact me on GITHUB or by email (Link below).
 
-**JokeAPI:**
+## Questions
+This application can be found on my [github](https://www.github.com/cassiep1986?tab=repositories/).
 
-[https://v2.jokeapi.dev/](https://v2.jokeapi.dev/)
-
-**Geek Jokes Api**
-
-https://geek-jokes.sameerkumar.website/api?format=json
-
-Rough breakdown of tasks:
-
-- Create basic html page.
-- Create CSS using Bulma framework.
-- Fetch joke data by category.
-- Create dropdown menu that contains joke categories.
-- Display jokes in body of document.
-- Create a joke of the day (Random joke?)
-- Create buttons to save jokes.
-- Create buttons to unsave jokes.
-- Attach saved jokes to side.
-- Save saved jokes to local storage.
-- Display (random?) saved joke to page upon load.
+For additonal questions you can contact me by [email](mailto:cassiep1986@gmail.com).
